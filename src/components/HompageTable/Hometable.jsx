@@ -7,18 +7,19 @@ const Hometable = () => {
             .then(res => res.json())
             .then(data => setProduct(data))
     }, [])
-    // console.log(products);
 
     const [searchTerm, setSearchTerm] = useState('');
     const handleInputChange = (e) => {
+        console.log(searchTerm);
         setSearchTerm(e.target.value);
     };
 
+    const [searchData, setSearchData] = useState([]);
     const handleSearch = () => {
         // console.log('Searching for:', searchTerm);
         fetch(`http://localhost:5000/product/search?term=${searchTerm}`)
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => setSearchData(data))
     };
     return (
         <div className='my-40'>
@@ -50,26 +51,49 @@ const Hometable = () => {
                     </thead>
                     <tbody>
                         {
-                            products.map(product => {
-                                return (
-                                    <tr key={product._id}>
+                            (products.length > 0 && searchData.length === 0) ?
+                                products.map(product => {
+                                    return (
+                                        <tr key={product._id}>
 
-                                        <td>
-                                            <span className="badge badge-ghost badge-sm">{product?.orderid}</span>
-                                        </td>
-                                        <td>{product.to}</td>
-                                        <th>
-                                            <button className="btn btn-ghost btn-xs">{product.from}</button>
-                                        </th>
-                                        <th>
-                                            <button className="btn btn-ghost btn-xs">details</button>
-                                        </th>
+                                            <td>
+                                                <span className="badge badge-ghost badge-sm">{product?.orderid}</span>
+                                            </td>
+                                            <td>{product.to}</td>
+                                            <th>
+                                                <button className="btn btn-ghost btn-xs">{product.from}</button>
+                                            </th>
+                                            <th>
+                                                <button className="btn btn-ghost btn-xs">details</button>
+                                            </th>
 
-                                    </tr>
-                                )
+                                        </tr>
+                                    )
 
-                            })
+                                })
+                                :
+                                searchData.map(product => {
+                                    return (
+                                        <tr key={product._id}>
+
+                                            <td>
+                                                <span className="badge badge-ghost badge-sm">{product?.orderid}</span>
+                                            </td>
+                                            <td>{product.to}</td>
+                                            <th>
+                                                <button className="btn btn-ghost btn-xs">{product.from}</button>
+                                            </th>
+                                            <th>
+                                                <button className="btn btn-ghost btn-xs">details</button>
+                                            </th>
+
+                                        </tr>
+                                    )
+
+                                })
+
                         }
+
                     </tbody>
 
                 </table>
