@@ -7,7 +7,7 @@ const Navber = () => {
             <div className='h-[10vh]  w-full fixed top-0 left-0 right-0 z-30 bg-white shadow-md clear-both'>
                 <div className="navbar bg-base-100">
                     <div className="navbar-start">
-                        <Link to="/" className="btn btn-ghost normal-case text-xl">daisyUI</Link>
+                        <Link to="/" className="btn btn-ghost normal-case text-xl">GoClick</Link>
                     </div>
                     <div className="navbar-center hidden lg:flex">
                         <ul className="menu menu-horizontal px-1">
