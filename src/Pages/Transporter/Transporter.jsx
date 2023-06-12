@@ -53,7 +53,7 @@ const Transporter = () => {
 
     return (
         <div>
-            <h1 className='text-center text-5xl font-bold my-7'>Transporter page</h1>
+            <h1 className='text-center text-5xl font-bold py-14'>Transporter page</h1>
             <form onSubmit={handleTransporterForm} action="" className='w-[500px] mx-auto p-8 rounded-md border-2 mb-10'>
                 <div className="flex flex-col gap-1 mb-6">
                     <label htmlFor="" className='font-bold'>Orderid</label>

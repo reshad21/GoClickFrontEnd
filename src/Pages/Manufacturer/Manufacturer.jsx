@@ -52,7 +52,7 @@ const Manufacturer = () => {
 
     return (
         <div>
-            <h1 className='text-center text-5xl font-bold my-7'>Manufacturer page</h1>
+            <h1 className='text-center text-5xl font-bold py-20'>Manufacturer page</h1>
             <form onSubmit={handleManufectureForm} action="" className='w-[500px] mx-auto p-8 rounded-md border-2 mb-10'>
                 <div className="flex flex-col gap-1 mb-3">
                     <label htmlFor="" className='font-bold'>Order Id</label>

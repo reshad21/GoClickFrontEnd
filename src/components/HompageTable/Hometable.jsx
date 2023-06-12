@@ -22,7 +22,7 @@ const Hometable = () => {
             .then(data => setSearchData(data))
     };
     return (
-        <div className='my-40'>
+        <div className='py-40'>
             <div className="form-control">
                 <div className="input-group justify-end">
                     <input

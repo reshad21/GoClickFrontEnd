@@ -1,10 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useTheme } from '../../../context/ThemeContext';
 
 const Navber = () => {
+    // const [theme, setTheme] = useLocalStorage('theme' ? 'dark' : 'light')
+    // const switchTheme = () => {
+    //     const newTheme = theme === 'light' ? 'dark' : 'light';
+    //     setTheme(newTheme)
+    // }
+
+
+    const { theme, switchTheme } = useTheme();
+
+    // data-theme={theme}
     return (
-        <div className='my-[10vh]'>
-            <div className='h-[10vh]  w-full fixed top-0 left-0 right-0 z-30 bg-white shadow-md clear-both'>
+        <div className='mt-[7vh]' data-theme={theme}>
+            <div className='h-[10vh]  w-full fixed top-0 left-0 right-0 z-30  shadow-md clear-both'>
                 <div className="navbar bg-base-100">
                     <div className="navbar-start">
                         <Link to="/" className="btn btn-ghost normal-case text-xl">GoClick</Link>
@@ -20,7 +31,7 @@ const Navber = () => {
                         </ul>
                     </div>
                     <div className="navbar-end">
-                        <a className="btn">Button</a>
+                        <button onClick={switchTheme} className="btn">Toggle</button>
                     </div>
                 </div>
             </div>
